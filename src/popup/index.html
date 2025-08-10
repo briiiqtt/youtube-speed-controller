@@ -9,25 +9,53 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #121212;
             color: #eee;
-            padding: 20px;
-            width: 400px;
+            padding: 15px;
+            width: 360px;
             box-sizing: border-box;
+        }
+
+        #donateSection {
+            text-align: right;
+            margin-bottom: 8px;
+        }
+
+        #donateBtn {
+            padding: 5px 10px;
+            font-size: 0.85rem;
+            background: #ffaa00;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #222;
+            box-shadow: 0 2px 5px rgba(255, 170, 0, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        #donateBtn:hover {
+            background: #e69900;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.2rem;
         }
 
         label {
             display: block;
-            margin: 12px 0 4px;
+            margin: 8px 0 3px;
+            font-size: 0.9rem;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            font-size: 1.1rem;
+            padding: 8px;
+            font-size: 1rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             background: #222;
             color: #eee;
-            box-shadow: inset 0 0 5px #000;
+            box-shadow: inset 0 0 4px #000;
             outline: none;
             cursor: pointer;
             user-select: none;
@@ -35,39 +63,20 @@
         }
 
         input[type="text"]:focus {
-            box-shadow: 0 0 8px #ff0000;
+            box-shadow: 0 0 6px #ff0000;
             background: #330000;
-        }
-
-        button {
-            margin-top: 20px;
-            width: 100%;
-            padding: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-            background: #ff0000;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background: #cc0000;
-        }
-
-        button:active {
-            background: #aa0000;
         }
     </style>
 </head>
 
 <body>
+    <div id="donateSection">
+        <a href="https://buymeacoffee.com/briiiqtt" target="_blank" id="donateBtn" style="font-size: small;">☕ Buy Me a
+            Coffee</a>
+    </div>
+
     <h2>단축키 설정</h2>
 
-    <!-- Feature별 input, id는 Feature명과 동일해야 함 -->
     <label for="HOLD_x1">1배속 홀드</label>
     <input type="text" id="HOLD_x1" class="keyInput" readonly placeholder="클릭해서 키 입력" />
 
@@ -92,8 +101,7 @@
     <label for="PRESS_x4">4배속 전환</label>
     <input type="text" id="PRESS_x4" class="keyInput" readonly placeholder="클릭해서 키 입력" />
 
+    <script type="module" src="./index.ts"></script>
 </body>
-
-<script type="module" src="./index.ts"></script>
 
 </html>
