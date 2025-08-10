@@ -2,6 +2,11 @@ import { speedController } from '../content/SpeedController';
 import type { Feature } from './Feature';
 import { DEFAULT_KEYS, type HotKeyMap } from './HotKeyMap';
 
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName != 'local') return;
+  hotKey.loadKeyMap();
+});
+
 class HotKey {
   pressedKeys: Set<string>;
   keyMap: HotKeyMap;
@@ -26,8 +31,6 @@ class HotKey {
       (k) => this.keyMap[k as Feature] === hotKeyString
     ) as Feature | undefined;
 
-    console.log('onKeyDown', hotKeyString, feature);
-
     if (feature) this.featureActions[feature](true);
     return feature || null;
   }
@@ -40,47 +43,25 @@ class HotKey {
       (k) => this.keyMap[k as Feature] === hotKeyString
     ) as Feature | undefined;
 
-    console.log('onKeyUp', hotKeyString, feature);
-
     this.pressedKeys.delete(key);
 
     if (feature) this.featureActions[feature](false);
     return feature || null;
   }
 
-  recordKeyDown(e: KeyboardEvent): string {
-    const key = e.key.toLowerCase();
-    this.pressedKeys.add(key);
-
-    const hotKeyString = Array.from(this.pressedKeys).join(' +  ');
-
-    console.log('record', hotKeyString);
-    
-    return hotKeyString;
+  async loadKeyMap(): Promise<void> {
+    this.keyMap = await this.loadKeysFromStorage();
   }
 
-  finishRecord(feature: Feature): string {
-    const hotKeyString = Array.from(this.pressedKeys).join(' + ');
-    this.pressedKeys.clear();
-    this.keyMap[feature] = hotKeyString;
-
-    console.log('record fin', hotKeyString);
-
-    return hotKeyString;
-  }
-
-  loadKeysFromStorage(): Promise<HotKeyMap> {
+  private loadKeysFromStorage(): Promise<HotKeyMap> {
     return new Promise((resolve) => {
-      chrome.storage.sync.get('hotKeys', (result) => {
-        if (result.hotKeys) resolve(result.hotKeys);
-        else resolve(DEFAULT_KEYS);
+      chrome.storage.local.get('hotKeys', (result) => {
+        if (result.hotKeys) {
+          console.log('loadKeysFromStorage', result);
+
+          resolve(result.hotKeys);
+        } else resolve(DEFAULT_KEYS);
       });
-    });
-  }
-
-  saveKeysToStorage(keys: HotKeyMap): Promise<void> {
-    return new Promise((resolve) => {
-      chrome.storage.sync.set({ hotKeys: keys }, () => resolve());
     });
   }
 
