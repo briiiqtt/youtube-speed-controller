@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>단축키 설정</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #121212;
+            color: #eee;
+            padding: 20px;
+            width: 400px;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 4px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: #eee;
+            box-shadow: inset 0 0 5px #000;
+            outline: none;
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 8px #ff0000;
+            background: #330000;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: #ff0000;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        button:active {
+            background: #aa0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>단축키 설정</h2>
+
+    <!-- Feature별 input, id는 Feature명과 동일해야 함 -->
+    <label for="HOLD_x1">1배속 홀드</label>
+    <input type="text" id="HOLD_x1" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="HOLD_x2">2배속 홀드</label>
+    <input type="text" id="HOLD_x2" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="HOLD_x3">3배속 홀드</label>
+    <input type="text" id="HOLD_x3" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="HOLD_x4">4배속 홀드</label>
+    <input type="text" id="HOLD_x4" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="PRESS_x1">1배속 전환</label>
+    <input type="text" id="PRESS_x1" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="PRESS_x2">2배속 전환</label>
+    <input type="text" id="PRESS_x2" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="PRESS_x3">3배속 전환</label>
+    <input type="text" id="PRESS_x3" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+    <label for="PRESS_x4">4배속 전환</label>
+    <input type="text" id="PRESS_x4" class="keyInput" readonly placeholder="클릭해서 키 입력" />
+
+</body>
+
+<script type="module" src="./index.ts"></script>
+
+</html>
