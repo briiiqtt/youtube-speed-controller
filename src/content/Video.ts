@@ -1,6 +1,22 @@
 class Video {
   get element(): HTMLVideoElement | null {
-    return document.querySelector('video');
+    const videos = document.querySelectorAll('video');
+    if (videos.length === 0) {
+      return null;
+    }
+
+    let largestVideo = null;
+    let maxArea = 0;
+
+    videos.forEach((video) => {
+      const area = video.offsetWidth * video.offsetHeight;
+      if (area > maxArea) {
+        maxArea = area;
+        largestVideo = video;
+      }
+    });
+
+    return largestVideo;
   }
 
   get paused(): boolean {
