@@ -19,7 +19,7 @@ class HotKey {
     })();
   }
 
-  onKeyDown(e: KeyboardEvent): Feature | null {
+  public onKeyDown(e: KeyboardEvent): void {
     // e.preventDefault(); //? 해야하나 말아야하나
 
     const key = e.key.toLowerCase();
@@ -32,10 +32,9 @@ class HotKey {
     ) as Feature | undefined;
 
     if (feature) this.featureActions[feature](true);
-    return feature || null;
   }
 
-  onKeyUp(e: KeyboardEvent): Feature | null {
+  public onKeyUp(e: KeyboardEvent): void {
     const key = e.key.toLowerCase();
     const hotKeyString = Array.from(this.pressedKeys).join(' + ');
 
@@ -46,7 +45,10 @@ class HotKey {
     this.pressedKeys.delete(key);
 
     if (feature) this.featureActions[feature](false);
-    return feature || null;
+  }
+
+  public onBlur() {
+    this.pressedKeys.clear();
   }
 
   async loadKeyMap(): Promise<void> {

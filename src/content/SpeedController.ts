@@ -6,28 +6,26 @@ class SpeedController {
   private wasPaused = false;
 
   holdSpeed(speed: number) {
-    this.prevSpeed = video.setSpeed(speed);
+    this.setSpeed(speed);
 
     if (video.paused) {
       video.play();
       this.wasPaused = true;
     }
-
-    indicator.setSpeed(speed);
   }
 
   unholdSpeed() {
-    video.setSpeed(this.prevSpeed);
+    this.setSpeed(this.prevSpeed);
 
     if (this.wasPaused) {
       video.pause();
       this.wasPaused = false;
     }
-
-    indicator.setSpeed(this.prevSpeed);
   }
 
   setSpeed(speed: number) {
+    console.log('setspeed', speed);
+
     video.setSpeed(speed);
     indicator.setSpeed(speed);
   }

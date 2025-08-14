@@ -9,6 +9,10 @@ class KeyHandler {
   handleKeyUp(e: KeyboardEvent) {
     hotKey.onKeyUp(e);
   }
+
+  handleBlur() {
+    hotKey.onBlur();
+  }
 }
 
 export const keyHandler = new KeyHandler();
