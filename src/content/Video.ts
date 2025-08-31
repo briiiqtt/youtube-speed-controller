@@ -1,3 +1,5 @@
+import { indicator } from './Indicator';
+
 class Video {
   get element(): HTMLVideoElement | null {
     const videos = document.querySelectorAll('video');
@@ -23,11 +25,11 @@ class Video {
     return this.element?.paused ?? true;
   }
 
-  setSpeed(speed: number): number {
-    if (!this.element) return 0;
-    const curSpeed: number = this.element.playbackRate;
+  setSpeed(speed: number): void {
+    if (!this.element) return;
     this.element.playbackRate = speed;
-    return curSpeed;
+
+    indicator.setSpeed(speed);
   }
 
   pause() {

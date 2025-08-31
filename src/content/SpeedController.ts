@@ -1,12 +1,11 @@
 import { video } from './Video';
-import { indicator } from './Indicator';
 
 class SpeedController {
-  private prevSpeed = 1;
+  private savedSpeed = 1;
   private wasPaused = false;
 
   holdSpeed(speed: number) {
-    this.setSpeed(speed);
+    video.setSpeed(speed);
 
     if (video.paused) {
       video.play();
@@ -15,7 +14,7 @@ class SpeedController {
   }
 
   unholdSpeed() {
-    this.setSpeed(this.prevSpeed);
+    video.setSpeed(this.savedSpeed);
 
     if (this.wasPaused) {
       video.pause();
@@ -24,10 +23,8 @@ class SpeedController {
   }
 
   setSpeed(speed: number) {
-    console.log('setspeed', speed);
-
+    this.savedSpeed = speed;
     video.setSpeed(speed);
-    indicator.setSpeed(speed);
   }
 }
 
