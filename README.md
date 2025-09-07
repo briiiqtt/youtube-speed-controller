@@ -1,6 +1,7 @@
 # youtube-speed-controller
 
 ### 유튜브 영상 재생 속도를 키 딸깍 한 번으로 내 맘대로!
+[크롬 웹 스토어에서 보기](https://chromewebstore.google.com/detail/youtube-speed-controller/ojgkfaimmmkolonodkafbjkdiedalgap)
 
 ![](/captureimg.png)
 
