@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Youtube Speed Controller",
-  "version": "0.3",
+  "version": "1.0",
   "description": "Control YouTube video playback speed with a single keypress or key hold.",
   "background": {
     "service_worker": "background.js",

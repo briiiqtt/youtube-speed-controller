@@ -68,8 +68,17 @@ class HotKey {
   }
 
   private featureActions: Record<Feature, (isKeyDown: boolean) => void> = {
+    PRESS_x0_5: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.setSpeed(0.5);
+    },
+    PRESS_x0_75: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.setSpeed(0.75);
+    },
     PRESS_x1: (isKeyDown: boolean) => {
       if (isKeyDown) speedController.setSpeed(1);
+    },
+    PRESS_x1_5: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.setSpeed(1.5);
     },
     PRESS_x2: (isKeyDown: boolean) => {
       if (isKeyDown) speedController.setSpeed(2);
@@ -80,8 +89,20 @@ class HotKey {
     PRESS_x4: (isKeyDown: boolean) => {
       if (isKeyDown) speedController.setSpeed(4);
     },
+    HOLD_x0_5: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.holdSpeed(0.5);
+      else speedController.unholdSpeed();
+    },
+    HOLD_x0_75: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.holdSpeed(0.75);
+      else speedController.unholdSpeed();
+    },
     HOLD_x1: (isKeyDown: boolean) => {
       if (isKeyDown) speedController.holdSpeed(1);
+      else speedController.unholdSpeed();
+    },
+    HOLD_x1_5: (isKeyDown: boolean) => {
+      if (isKeyDown) speedController.holdSpeed(1.5);
       else speedController.unholdSpeed();
     },
     HOLD_x2: (isKeyDown: boolean) => {

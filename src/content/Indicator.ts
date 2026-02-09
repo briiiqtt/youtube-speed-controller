@@ -11,10 +11,10 @@ class Indicator {
     if (!this.element || !this.innerElement) return;
     if (speed == 1) {
       this.element.style.display = 'none';
-      this.innerElement.innerHTML = '2배';
+      this.innerElement.innerHTML = '2X';
     } else {
       this.element.style.display = '';
-      this.innerElement.innerHTML = speed + '배';
+      this.innerElement.innerHTML = speed + 'X';
     }
   }
 }
