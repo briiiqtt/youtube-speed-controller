@@ -1,7 +1,7 @@
 # youtube-speed-controller
 
 
-![demo gif](<GIF 2-9-2026 14-27-10.gif>)
+![demo gif](demo.gif)
 
 ### 유튜브 재생속도 조절을 키 딸깍 한 번으로 편하게!
 
